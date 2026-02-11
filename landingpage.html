@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letters</title>
+  <link rel="icon" type="image/png" href="cat icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="music-global.js"></script>
+  <link rel="stylesheet" href="landingpage.css">
+</head>
+<body>
+  <div class="landing-page">
+    <div class="rectangle">
+      <h1 class="page-title">Love Letters For You 💌</h1>
+      
+      <div class="envelopes-container">
+        <!-- Row 1: 2 BIG envelopes -->
+        <div class="envelope" data-letter="1">
+          <div class="envelope-closed">
+            <span class="read-me">READ ME!</span>
+          </div>
+        </div>
+        
+        <div class="envelope" data-letter="2">
+          <div class="envelope-closed">
+            <span class="read-me">READ ME!</span>
+          </div>
+        </div>
+
+        <!-- Row 2: 2 BIG envelopes -->
+        <div class="envelope" data-letter="3">
+          <div class="envelope-closed">
+            <span class="read-me">READ ME!</span>
+          </div>
+        </div>
+        
+        <div class="envelope" data-letter="4">
+          <div class="envelope-closed">
+            <span class="read-me">READ ME!</span>
+          </div>
+        </div>
+
+        <!-- Row 3: 1 CENTERED BIG envelope -->
+        <div class="envelope center-envelope" data-letter="5">
+          <div class="envelope-closed">
+            <span class="read-me">READ ME!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter-modal" id="letterModal">
+    <div class="modal-content">
+      <div class="modal-envelope">
+        <div class="modal-letter">
+          <h2 class="modal-letter-title" id="modalLetterTitle"></h2>
+          <p class="modal-letter-text" id="modalLetterText"></p>
+          <button class="back-btn" id="backToLetters">← Back to Letters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const letters = {
+      1: {
+        title: "Letter 1",
+        text: "I love you so much, mi amor. You are the light at the end of the tunnel, and the reason for my happiness. Every moment with you is a treasure, and I am grateful for your love and support. I promise to always be there for you, through thick and thin, and to love you unconditionally. You are my everything, and I can't wait to create more beautiful memories together."
+      },
+      2: {
+        title: "Letter 2", 
+        text: "Thank you for always being there for me, and for loving me for who I am. If it weren't for you, I wouldn't know what true love is. You have shown me the meaning of love, and I am forever grateful for that."
+      },
+      3: {
+        title: "Letter 3",
+        text: "You're such an amazing person, truly remarkable in every way. Your kindness, compassion, and love never cease to amaze me. I love you just the way you are. I love your flaws, your quirks, your strengths, everything. Anyone is lucky to have someone like you."
+      },
+      4: {
+        title: "Letter 4",
+        text: "I am so proud of you, mi amor. You have accomplished so much and have overcome so many challenges. I admire your patience and your perseverance. You don't know how proud I am of you, even if you're not proud of yourself. Take your time amo, and know that I will always be here to support you and cheer you on. You are capable of achieving anything you set your mind to, and I believe in you with all my heart."
+      },
+      5: {
+        title: "Letter 5",
+        text: "I'm always here by your side, through thick and thin, through ups and downs. You have me, we have each other. Let's continue to be together for the rest of our lives. i love you!"
+      }
+    };
+
+    document.querySelectorAll('.envelope').forEach(envelope => {
+      envelope.addEventListener('click', function() {
+        const letterId = this.dataset.letter;
+        const letter = letters[letterId];
+        
+        document.getElementById('modalLetterTitle').textContent = letter.title;
+        document.getElementById('modalLetterText').textContent = letter.text;
+        document.getElementById('letterModal').classList.add('active');
+      });
+    });
+
+    document.getElementById('backToLetters').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('letterModal').classList.remove('active');
+    });
+
+    document.getElementById('letterModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

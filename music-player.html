@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Controller</title>
+  <style>body { margin: 0; padding: 0; height: 1px; overflow: hidden; }</style>
+</head>
+<body>
+  <audio id="global-music" loop preload="auto">
+    <source src="lovergirl.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    const music = document.getElementById('global-music');
+    music.volume = 0.15;
+    
+    let hasInteracted = false;
+    
+    function startMusic() {
+      if (!hasInteracted) {
+        music.play().then(() => {
+          console.log('🎵 Music started!');
+          hasInteracted = true;
+        }).catch(e => {
+          console.log('Autoplay blocked, waiting for interaction');
+        });
+      }
+    }
+    
+    document.addEventListener('click', startMusic, { once: true });
+    document.addEventListener('touchstart', startMusic, { once: true });
+    document.addEventListener('keydown', startMusic, { once: true });
+    document.addEventListener('mousemove', startMusic, { once: true });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && hasInteracted) {
+        music.play().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>

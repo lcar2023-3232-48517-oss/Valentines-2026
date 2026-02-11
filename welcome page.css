@@ -1,0 +1,145 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Lexend", sans-serif;
+}
+
+.welcome-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url('background website.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.rectangle {
+  background-color: #ffffff;
+  border-radius: 80px;
+  padding: 200px 150px;
+  width: 100%;
+  max-width:2000px;
+  height: 50%;
+  max-height: 2000px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  border: 16px solid #fb296c;
+  margin-right: 5%;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  font-family: "Cherry Bomb One", cursive;
+  font-size: 150px;
+  font-weight: normal;
+  color: #fb296c;
+  margin: 0;
+  line-height: 1.0;
+}
+
+.subtitle {
+  font-family: "Lexend", sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  color: #fb296c;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.subtext {
+  font-family: "Lexend", sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: #fb296c;
+  margin: 0;
+  line-height: 4.0;
+}
+
+@keyframes heartFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.8);
+  }
+}
+
+.log-in-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 140px;
+  background-color: #fb296c;
+  border-radius: 80px;
+  cursor: pointer;
+  margin-top: 40px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 8px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.log-in-button:hover {
+  background-color: #e51e54;
+  transform: scale(1.08);
+  box-shadow: 0 20px 40px rgba(251, 41, 108, 0.6);
+}
+
+.log-in-button:hover::before,
+.log-in-button:hover::after {
+  content: '💗';
+  position: absolute;
+  font-size: 100px;
+  animation: heartFloat 1.5s infinite ease-out;
+}
+
+.log-in-button:hover::before {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.log-in-button:hover::after {
+  top: 60%;
+  right: 20%;
+  animation-delay: 0.3s;
+}
+
+.log-in {
+  font-family: "Lexend", sans-serif;
+  color: #ffffff;
+  font-size: 80px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 2;
+}
+
+#bg-music {
+  position: fixed;
+  top: -9999px;
+}
